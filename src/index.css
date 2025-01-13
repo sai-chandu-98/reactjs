@@ -1,98 +1,282 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 
-/* base styles */
+/* Global styles */
 * {
   margin: 0;
-  font-family: "Quicksand";
-  color: #333;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Quicksand", sans-serif;
 }
+
+body {
+  background-color: #f4f4f9;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Navbar */
 .navbar {
   padding: 20px;
   display: flex;
   align-items: center;
-  max-width: 600px;
+  max-width: 800px;
   margin: 0 auto;
-  border-bottom: 1px solid #f2f2f2;
+  border-bottom: 1px solid #ddd;
 }
+
 .navbar h1 {
-  color: #80bfff;
+  color: #1d3557;
+  font-size: 1.8rem;
 }
+
 .navbar .links {
   margin-left: auto;
 }
+
 .navbar a {
   margin-left: 16px;
   text-decoration: none;
   padding: 6px;
+  color: inherit;
+  font-weight: 500;
 }
+
 .navbar a:hover {
   color: #80bfff;
 }
+
+/* Content Wrapper */
 .content {
-  max-width: 600px;
+  max-width: 800px;
   margin: 40px auto;
   padding: 20px;
 }
+
+/* Generic Container for Details and Previews */
+.movie-details,
+.movie-preview,
+.create {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Movie Preview */
 .movie-preview {
-  padding: 10px 16px;
+  padding: 16px;
   margin: 20px 0;
-  border-bottom: 1px solid #fafafa;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  transition: box-shadow 0.3s ease;
 }
+
 .movie-preview:hover {
-  box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
+  box-shadow: 1px 3px 8px rgba(0, 0, 0, 0.1);
 }
+
 .movie-preview h2 {
   font-size: 20px;
   color: #80bfff;
   margin-bottom: 8px;
 }
-.movie-preview a{
+
+.movie-preview a {
   text-decoration: none;
-}
-.movie-details h2 {
-  font-size: 20px;
-  color: #80bfff;
-  margin-bottom: 10px;
-}
-.movie-details button {
-  background:  #ff3333;
-  color: #fff;
-  border: 0;
-  padding: 8px;
-  border-radius: 8px;
-  cursor: pointer;
+  color: inherit;
 }
 
-.movie-details div {
-  margin: 20px 0;
-}
-.create {
-  max-width: 400px;
-  margin: 0 auto;
-  text-align: center;
-}
-.create label {
-  text-align: left;
-  display: block;
-}
+/* Movie Details */
+.movie-details h2,
 .create h2 {
-  font-size: 20px;
-  color: #80bfff;
-  margin-bottom: 30px;
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
 }
-.create input, .create textarea, .create select {
-  width: 100%;
-  padding: 6px 10px;
-  margin: 10px 0;
-  border: 1px solid #ddd;
-  box-sizing: border-box;
-  display: block;
+
+.movie-details p,
+.movie-details div,
+.create label {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 20px;
 }
-.create button {
-  background:  #ff3333;
-  color: #fff;
-  border: 0;
-  padding: 8px;
+
+/* Button Styles */
+button {
+  padding: 12px 16px;
+  font-size: 1rem;
+  border: none;
   border-radius: 8px;
   cursor: pointer;
+  margin-right: 10px;
+  transition: background-color 0.3s ease;
+}
+
+/* Delete Button */
+button.delete-btn {
+  background-color: #e63946;
+  color: #fff;
+}
+
+button.delete-btn:hover {
+  background-color: #d62828;
+}
+
+/* Edit Button */
+button.edit-btn {
+  background-color: #1d3557;
+  color: #fff;
+}
+
+button.edit-btn:hover {
+  background-color: #d62828;
+}
+
+/* Form for Editing/Creating */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+form input,
+form textarea,
+form select {
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+form textarea {
+  min-height: 120px;
+  resize: none;
+}
+
+/* Form Buttons */
+form button[type="submit"] {
+  background-color: #1d3557;
+  color: #fff;
+}
+
+form button[type="submit"]:hover {
+  background-color: #457b9d;
+}
+
+form button[type="button"] {
+  background-color: #aaa;
+  color: #fff;
+}
+
+form button[type="button"]:hover {
+  background-color: #888;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .navbar,
+  .content,
+  .movie-details,
+  .movie-preview,
+  .create {
+    padding: 10px;
+  }
+
+  .navbar h1 {
+    font-size: 1.5rem;
+  }
+
+  button {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+}
+/* Button styles */
+.movie-details button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 10px; /* Spacing between buttons */
+  transition: background-color 0.3s ease;
+}
+
+/* Delete button */
+.movie-details button:first-child {
+  background-color: #d62828;
+  color: #e01414;
+}
+
+.movie-details button:first-child:hover {
+  background-color: #d62828;
+}
+
+/* Edit button */
+.movie-details button:last-child {
+  background-color: #1d3557;
+  color: #fff;
+}
+
+.movie-details button:last-child:hover {
+  background-color: #457b9d;
+}
+
+/* Form styles for edit mode */
+.movie-details form {
+  display: flex;
+  flex-direction: column;
+}
+
+.movie-details form label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.movie-details form input,
+.movie-details form textarea {
+  margin-bottom: 15px;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.movie-details form textarea {
+  height: 100px;
+  resize: none;
+}
+
+.movie-details form button {
+  margin-right: 10px;
+}
+
+.movie-details form button[type="submit"] {
+  background-color: #1d3557;
+  color: #fff;
+}
+
+.movie-details form button[type="submit"]:hover {
+  background-color: #457b9d;
+}
+
+.movie-details form button[type="button"] {
+  background-color: #ccc;
+  color: #333;
+}
+
+.movie-details form button[type="button"]:hover {
+  background-color: #d62828;
 }
